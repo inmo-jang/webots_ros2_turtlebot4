@@ -8,5 +8,11 @@
         <hardware>
             <plugin>webots_ros2_control::Ros2ControlSystem</plugin>
         </hardware>
+        <joint name="left_wheel_joint">
+            <state_interface name="position"/>
+        </joint>
+        <joint name="right_wheel_joint">
+            <state_interface name="position"/>
+        </joint>        
     </ros2_control>        
 </robot>

@@ -1,3 +1,10 @@
 controller_manager:
   ros__parameters:
     update_rate: 50
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+joint_state_broadcaster:
+  ros__parameters:
+    joints: ["left_wheel_joint", "right_wheel_joint"]
