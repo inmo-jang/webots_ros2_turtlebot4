@@ -25,6 +25,24 @@ def generate_launch_description():
         }],
     )
 
+    # wheel_drop_left and right
+    tf_wheel_drop_left = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='wheel_drop_left_to_base_link',
+        output='screen',
+        arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'wheel_drop_left'],
+    )
+
+    tf_wheel_drop_right = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='wheel_drop_right_to_base_link',
+        output='screen',
+        arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'wheel_drop_right'],
+    )
+
+
     # ROS control spawners
     ros2_control_params = os.path.join(package_dir, 'resource', 'ros2control.yaml')
     controller_manager_timeout = ['--controller-manager-timeout', '50']
@@ -70,6 +88,8 @@ def generate_launch_description():
     return LaunchDescription([
         webots,
         robot_state_publisher,
+        tf_wheel_drop_left,
+        tf_wheel_drop_right,
         robot_driver,
         waiting_nodes,
         # The following action will kill all nodes once the Webots simulation has exited
