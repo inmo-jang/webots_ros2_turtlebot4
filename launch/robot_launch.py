@@ -1,6 +1,9 @@
 import os
 import launch
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions.path_join_substitution import PathJoinSubstitution
+from launch.substitutions import LaunchConfiguration
 from ament_index_python.packages import get_package_share_directory
 from webots_ros2_driver.webots_launcher import WebotsLauncher
 from webots_ros2_driver.webots_controller import WebotsController
@@ -10,9 +13,11 @@ from launch_ros.actions import Node
 def generate_launch_description():
     package_dir = get_package_share_directory('webots_ros2_turtlebot4')
 
+    world = LaunchConfiguration('world')
+    
     # Start a Webots simulation instance
     webots = WebotsLauncher(
-        world=os.path.join(package_dir, 'worlds', 'turtlebot4_world.wbt')
+        world=PathJoinSubstitution([package_dir, 'worlds', world])
     )
 
     # Create the robot state publisher
@@ -86,6 +91,11 @@ def generate_launch_description():
     )    
 
     return LaunchDescription([
+        DeclareLaunchArgument(
+            'world',
+            default_value='turtlebot4_world.wbt',
+            description='Choose one of the world files from `/webots_ros2_turtlebot/world` directory'
+        ),           
         webots,
         robot_state_publisher,
         tf_wheel_drop_left,

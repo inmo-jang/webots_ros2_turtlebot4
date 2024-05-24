@@ -5,6 +5,7 @@ data_files = []
 data_files.append(('share/ament_index/resource_index/packages', ['resource/' + package_name]))
 data_files.append(('share/' + package_name + '/protos', ['protos/Turtlebot4.proto']))
 data_files.append(('share/' + package_name + '/worlds', ['worlds/turtlebot4_world.wbt']))
+data_files.append(('share/' + package_name + '/worlds', ['worlds/turtlebot4_world_2.wbt']))
 data_files.append(('share/' + package_name + '/resource', ['resource/ros2control.yaml']))
 data_files.append(('share/' + package_name + '/resource', ['resource/turtlebot4.urdf']))
 data_files.append(('share/' + package_name + '/launch', ['launch/robot_launch.py']))

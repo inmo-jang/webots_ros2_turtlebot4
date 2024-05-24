@@ -1,0 +1,68 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "../protos/Turtlebot4.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.4004333956233977 -0.06441328362339385 -0.9140590924893027 3.4335626048446226
+  position 5.167504583186073 -1.4715731391312337 4.1555118549650985
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0.88 0 0
+  floorSize 5 5
+  wallHeight 0.5
+}
+WoodenBox {
+  translation 2.848950911064097 -1.5346814696042331e-12 0.2996076000000001
+  rotation -3.074768784413995e-05 -2.141038925338041e-05 -0.9999999992980875 5.325524955880567e-13
+  mass 1
+}
+WoodenBox {
+  translation 0.5599907757186094 1.5078699999905207 0.2996076000000001
+  rotation -5.325809593711838e-10 -2.04529006086197e-11 -1 1.3148199156447783e-08
+  name "wooden box(1)"
+  mass 1
+}
+WoodenBox {
+  translation -0.74 -0.15360999998278846 0.2996076000000001
+  rotation 1 9.813422901244921e-12 1.7013643594609242e-18 3.141592653589793
+  name "wooden box(2)"
+  mass 1
+}
+WoodenBox {
+  translation -1.2765699994449051 1.180003770682635 0.2996076000000001
+  rotation -2.050048263232093e-12 -3.2076246410313696e-12 1 4.067020152579567e-06
+  name "wooden box(3)"
+  mass 1
+}
+WoodenBox {
+  translation 1.3375404549090828 -0.7686824671879593 0.2996076000000001
+  rotation -1.7649397691940717e-13 -1.0927121799441261e-12 1 1.0499756922070267e-05
+  name "wooden box(4)"
+  mass 1
+}
+WoodenBox {
+  translation 2.0399059668311486 -2.1999976166610433 0.29960760341336556
+  rotation -0.10335009084718746 -0.0016599601312332253 -0.9946436564188406 1.1670190173126089e-05
+  name "wooden box(5)"
+  mass 1
+}
+Turtlebot4 {
+  hidden position_0_0 -1.546766365320554e-05
+  hidden position_0_1 -1.5355602924163955e-05
+  hidden translation_5 0 0.1165 0.04021546766365321
+  hidden position_5_0 2.887730410833015e-09
+  hidden translation_7 0 -0.1165 0.04021535560292416
+  hidden position_7_0 2.9504591086704996e-09
+  translation -4.732903678877909e-05 -1.507341491003211e-07 -0.00591725813373456
+  rotation -0.0032322084726027272 0.9999947763999835 -1.066160971901039e-06 0.012285858094336733
+}
