@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<robot name="Turtlebot4">
+    <webots>
+        <plugin type="webots_ros2_control::Ros2Control"/>
+    </webots>
+
+    <ros2_control name="WebotsControl" type="system">
+        <hardware>
+            <plugin>webots_ros2_control::Ros2ControlSystem</plugin>
+        </hardware>
+    </ros2_control>        
+</robot>
