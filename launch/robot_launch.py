@@ -14,10 +14,12 @@ def generate_launch_description():
     package_dir = get_package_share_directory('webots_ros2_turtlebot4')
 
     world = LaunchConfiguration('world')
+    use_sim_time = LaunchConfiguration('use_sim_time', default=True)
     
     # Start a Webots simulation instance
     webots = WebotsLauncher(
-        world=PathJoinSubstitution([package_dir, 'worlds', world])
+        world=PathJoinSubstitution([package_dir, 'worlds', world]),
+        ros2_supervisor=True
     )
 
     # Create the robot state publisher
@@ -77,6 +79,7 @@ def generate_launch_description():
         robot_name='Turtlebot4',
         parameters=[
             {'robot_description': robot_description_path,
+             'use_sim_time': use_sim_time,
              'set_robot_state_publisher': True
              },
             ros2_control_params
@@ -97,6 +100,7 @@ def generate_launch_description():
             description='Choose one of the world files from `/webots_ros2_turtlebot/world` directory'
         ),           
         webots,
+        webots._supervisor,
         robot_state_publisher,
         tf_wheel_drop_left,
         tf_wheel_drop_right,
