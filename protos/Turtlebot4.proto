@@ -239,6 +239,31 @@ PROTO Turtlebot4 [
         }
       }
       Solid {
+        translation -0.125000 0.000000 0.012200
+        rotation -1.000000 0.000000 0.000000 1.570796
+        children [
+          Shape {
+            appearance USE black
+            geometry Sphere {
+              radius 0.005
+            }
+          }
+        ]
+        name "rear_caster_link"
+        boundingObject Sphere {
+          radius 0.005
+        }
+        physics Physics {
+          density -1
+          mass 0.010000
+          centerOfMass [ 0.000000 0.000000 0.000000 ]
+          inertiaMatrix [
+            4.000000e-07 4.000000e-07 4.000000e-07
+            0.000000e+00 0.000000e+00 0.000000e+00
+          ]
+        }
+      }      
+      Solid {
         translation 0.050613 0.043673 0.084400
         name "imu_link"
         physics Physics {
@@ -759,7 +784,7 @@ PROTO Turtlebot4 [
                     name "oakd_rgb_camera" # RGB Camera
                     width 1280
                     height 800   
-                    fieldOfView 80                       
+                    fieldOfView 1.3962 # rad                
                     physics Physics {
                       density -1
                       mass 0.010000
@@ -774,7 +799,7 @@ PROTO Turtlebot4 [
                     name "oakd_stereo_camera"
                     width 1280
                     height 800
-                    fieldOfView 80
+                    fieldOfView 1.3962 # rad 
                     minRange 0.01
                     maxRange 12.0
                     near 0.01
@@ -977,8 +1002,8 @@ PROTO Turtlebot4 [
     }
     physics Physics {
       density -1
-      mass 3.900000
-      centerOfMass [ 0.100000 0.000000 0.074200 ]
+      mass 0.810000
+      centerOfMass [ 0.000000 0.000000 0.074200 ]
       inertiaMatrix [
         1.615520e-02 1.615520e-02 3.093040e-02
         0.000000e+00 0.000000e+00 0.000000e+00

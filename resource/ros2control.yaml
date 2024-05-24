@@ -22,7 +22,7 @@ diffdrive_controller:
     wheel_radius: 0.035750000000000004
 
     # The real separation between wheels is not resulting in a perfect odometry
-    wheel_separation_multiplier: 1.112
+    wheel_separation_multiplier: 1.06793648481
 
     use_stamped_vel: false
     base_frame_id: "base_link"
@@ -31,3 +31,7 @@ diffdrive_controller:
       x:
         has_velocity_limits: true
         max_velocity: 0.2 # Maximal speed of turtlebot
+    angular:
+      z:
+        has_velocity_limits: true
+        max_velocity: 0.1
