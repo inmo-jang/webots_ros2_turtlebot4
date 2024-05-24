@@ -33,8 +33,14 @@ def generate_launch_description():
         executable='spawner',
         output='screen',
         arguments=['joint_state_broadcaster'] + controller_manager_timeout,
-    )    
-    ros_control_spawners = [joint_state_broadcaster_spawner]
+    )
+    diffdrive_controller_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        output='screen',
+        arguments=['diffdrive_controller'] + controller_manager_timeout,
+    )
+    ros_control_spawners = [joint_state_broadcaster_spawner, diffdrive_controller_spawner]
 
     # Create a ROS node interacting with the simulated robot
     robot_description_path = os.path.join(package_dir, 'resource', 'turtlebot4.urdf')
