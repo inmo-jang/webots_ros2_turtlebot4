@@ -41,6 +41,12 @@ def generate_launch_description():
         arguments=['diffdrive_controller'] + controller_manager_timeout,
     )
     ros_control_spawners = [joint_state_broadcaster_spawner, diffdrive_controller_spawner]
+    mappings = [
+        ('/diffdrive_controller/cmd_vel_unstamped', '/cmd_vel'), 
+        ('/diffdrive_controller/odom', '/odom'),
+        ('/Turtlebot4/rplidar', '/scan'),
+        ('/Turtlebot4/oakd_stereo_camera/point_cloud', '/depth_camera')
+        ]    
 
     # Create a ROS node interacting with the simulated robot
     robot_description_path = os.path.join(package_dir, 'resource', 'turtlebot4.urdf')
@@ -48,11 +54,11 @@ def generate_launch_description():
         robot_name='Turtlebot4',
         parameters=[
             {'robot_description': robot_description_path,
-             'use_sim_time': True,
              'set_robot_state_publisher': True
              },
             ros2_control_params
-        ]
+        ],
+        remappings=mappings
     )
 
     # Wait for the simulation to be ready to start navigation nodes
